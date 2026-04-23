@@ -1,5 +1,6 @@
 🧬 GDSC Pharmacogenomics ML Pipeline
 Drug Response Prediction using Machine Learning
+
 📌 Overview
 This project is part of a structured pharmacogenomics pipeline based on the Genomics of Drug Sensitivity in Cancer (GDSC) dataset.
 It represents Project 3 (Machine Learning) in a multi-step workflow:
@@ -7,6 +8,7 @@ Project 1: Data integration & harmonization
 Project 2: Exploratory Data Analysis (EDA) & statistical inference
 Project 3 (this repo): Machine Learning modeling
 The goal is to predict drug response using molecular and pharmacological features.
+
 🎯 Objectives
 Two complementary prediction tasks were defined:
 🔹 Regression
@@ -16,6 +18,7 @@ LN_IC50_scaled
 Predict binary drug sensitivity:
 Sensitive (1): bottom 25% (Q1) of LN_IC50
 Resistant/Intermediate (0): remaining samples
+
 ⚙️ Tech Stack
 Language: R
 Environment: Google Colab
@@ -28,6 +31,7 @@ e1071 (SVM)
 class (k-NN)
 Metrics
 pROC
+
 🧠 Machine Learning Pipeline
 1. Data Loading
 The preprocessed dataset (GDSC_ML_Ready.csv) was loaded from Google Drive.
@@ -62,12 +66,14 @@ from predictor matrix before training.
 80% training
 20% testing
 Stratified sampling using caret::createDataPartition
+
 📈 Regression Models
 Models trained:
 🌲 Random Forest Regressor
 ⚡ XGBoost Regressor
 Evaluation metric:
 RMSE (Root Mean Squared Error)
+
 🧬 Classification Pipeline
 1. Dimensionality Reduction (PCA)
 Applied only on training data
@@ -86,6 +92,7 @@ Random Forest Classifier
 4. Evaluation
 Confusion Matrix (caret)
 Predictions performed on original (unbalanced) test set
+
 🔧 Model Tuning
 Random Forest Optimization
 5-fold cross-validation
@@ -93,6 +100,7 @@ Grid Search:
 mtry = {3, 5, 10}
 Random Search:
 Reduced tuning space for computational efficiency
+
 🚀 Key Insights
 High-dimensional pharmacogenomic data requires:
 Strong preprocessing
@@ -100,6 +108,7 @@ Dimensionality reduction (PCA)
 Class imbalance significantly affects classification performance
 Tree-based models (RF, XGBoost) showed strong baseline performance
 Memory constraints are a real-world limitation → required sampling strategy
+
 📂 Repository Structure
 ├── data/
 │   └── GDSC_ML_Ready.csv
@@ -110,6 +119,7 @@ Memory constraints are a real-world limitation → required sampling strategy
 ├── results/
 │   └── model_outputs/
 └── README.md
+
 🧪 Reproducibility
 To reproduce the analysis:
 # Install required packages
@@ -117,19 +127,22 @@ install.packages(c("tidyverse", "caret", "randomForest", "xgboost", "e1071", "cl
 
 # Run pipeline
 source("src/ml_pipeline.R")
+
 📊 Future Improvements
 Hyperparameter tuning for XGBoost
 Feature importance analysis
 SHAP values / interpretability
 Deep learning approaches
 External validation dataset
+
 👨‍🔬 Author
 David Villafañe
-Biotechnologist | PhD Candidate in Biological Sciences
+PhD in Biological Sciences | Biotechnologist
 Focused on:
 Bioinformatics
 Genomics
 Machine Learning in biomedical data
+
 🌐 Related Projects
 GDSC Project 1 → Data Integration
 GDSC Project 2 → EDA & Statistical Learning
